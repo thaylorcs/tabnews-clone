@@ -40,7 +40,7 @@ function DatabaseStatus() {
 
   let databaseStatusInfo = "Carregando...";
 
-  if (isLoading && data) {
+  if (!isLoading && data) {
     databaseStatusInfo = (
       <>
         <div>Versão: {data.dependencies.database.version}</div>
@@ -52,12 +52,11 @@ function DatabaseStatus() {
         </div>
       </>
     );
-
-    return (
-      <>
-        <h2>Database</h2>
-        <div>{databaseStatusInfo}</div>;
-      </>
-    );
   }
+  return (
+    <>
+      <h2>Database</h2>
+      <div>{databaseStatusInfo}</div>
+    </>
+  );
 }
